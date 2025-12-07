@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Neon PNG Generator</title>
+    <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+    <div class="app">
+        <h1 class="title">Neon PNG Generator</h1>
+        <p class="subtitle">Type text, preview the glow, download as PNG.</p>
+
+        <div class="controls">
+            <input type="text" id="textInput" placeholder="Type your neon text here..." maxlength="40" />
+            <div class="control-row">
+                <label>
+                    Resolution
+                    <select id="resolutionInput">
+                        <option value="900x400">900 × 400</option>
+                        <option value="1024x1024">1024 × 1024</option>
+                        <option value="1920x1080">1920 × 1080</option>
+                        <option value="2560x1440">2560 × 1440</option>
+                        <option value="custom">Custom…</option>
+                    </select>
+                </label>
+
+                <input type="text" id="customResolution" placeholder="e.g., 2000x500" style="display:none" />
+            </div>
+
+            <div class="control-row">
+                <label>
+                    Size
+                    <input type="range" id="sizeInput" min="30" max="110" value="72" />
+                </label>
+
+                <label style="display:block;">Color</label>
+                <div class="color-palette" id="colorPalette">
+                    <div class="color-swatch" data-color="#00eaff"></div>
+                    <div class="color-swatch" data-color="#ff00f5"></div>
+                    <div class="color-swatch" data-color="#00ff85"></div>
+                    <div class="color-swatch" data-color="#ffdd00"></div>
+                    <div class="color-swatch" data-color="#ff4444"></div>
+                    <div class="color-swatch" data-color="#ffffff"></div>
+                    </div>
+
+           
+                <label style="display:block;">Font</label>
+                    <select id="fontSelector"></select>
+
+            </div>
+        </div>
+
+        <div class="preview-card">
+            <div class="preview-label">Preview</div>
+            <canvas id="previewCanvas" width="900" height="400"></canvas>
+        </div>
+
+        <a id="downloadBtn" class="download-btn" href="#" download="neon-text.png">
+            Download PNG
+        </a>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
