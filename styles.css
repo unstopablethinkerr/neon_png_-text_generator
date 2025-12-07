@@ -283,3 +283,19 @@ input[type="range"]::-webkit-slider-thumb {
   background: #0b0b15;
   color: #e8f5ff;
 }
+
+#exampleLink {
+    display: inline-block;
+    padding: 10px 18px;
+    background: #4a90e2;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 6px;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    transition: background 0.25s ease;
+}
+
+#exampleLink:hover {
+    background: #357abf;
+}
