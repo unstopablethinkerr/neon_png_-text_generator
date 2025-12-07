@@ -56,6 +56,7 @@ body {
   margin-bottom: 22px;
 }
 
+/* TEXTAREA / INPUT - merged & enhanced */
 #textInput {
   width: 100%;
   padding: 14px 18px;
@@ -67,6 +68,11 @@ body {
   color: #ffffff;
 
   transition: 0.2s ease;
+
+  /* NEW: allow multiline textarea behavior and nicer sizing */
+  min-height: 88px;
+  resize: vertical;
+  box-sizing: border-box;
 }
 
 #textInput:focus {
@@ -240,6 +246,7 @@ input[type="range"]::-webkit-slider-thumb {
   flex-wrap: wrap;
 }
 
+/* color-swatch existing styling kept; small hover & selected states preserved */
 .color-swatch {
   width: 34px;
   height: 34px;
@@ -260,7 +267,9 @@ input[type="range"]::-webkit-slider-thumb {
   box-shadow: 0 0 15px #00eaffcc;
 }
 
-#fontSelector {
+/* FONT SELECTOR */
+#fontSelector,
+#alignInput {
   padding: 10px 14px;
   border-radius: 10px;
   border: 2px solid rgba(255, 255, 255, 0.18);
@@ -274,12 +283,14 @@ input[type="range"]::-webkit-slider-thumb {
   min-width: 180px;
 }
 
-#fontSelector:hover {
+#fontSelector:hover,
+#alignInput:hover {
   border-color: #00eaff;
   box-shadow: 0 0 10px #00eaff55;
 }
 
-#fontSelector option {
+#fontSelector option ,
+#alignInput option {
   background: #0b0b15;
   color: #e8f5ff;
 }
@@ -337,3 +348,14 @@ input[type="range"]::-webkit-slider-thumb {
   transform: translateY(0);
 }
 
+/* --- SMALL / ACCESSIBILITY TWEAKS (ADDED) --- */
+/* make sure inputs are keyboard-friendly and legible on small screens */
+@media (max-width: 640px) {
+  .control-row { gap: 10px; }
+  input[type="range"] { width: 140px; }
+  #fontSelector { min-width: 140px; }
+  .download-btn { width: 100%; justify-content: center; }
+}
+
+/* small helper to ensure canvas remains visually contained on very small heights */
+.preview-card { overflow: hidden; }
