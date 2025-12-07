@@ -312,3 +312,39 @@ if (document.fonts && document.fonts.ready) {
 } else {
   drawNeon();
 }
+
+const shareBtn = document.getElementById("share-btn");
+  const copyToast = document.getElementById("copy-toast");
+
+  function showToast() {
+    copyToast.classList.add("show");
+    setTimeout(() => {
+      copyToast.classList.remove("show");
+    }, 2000); // hide after 2 seconds
+  }
+
+  async function copyCurrentUrl() {
+    const url = window.location.href;
+
+    try {
+      // Modern API
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        await navigator.clipboard.writeText(url);
+      } else {
+        // Fallback for older browsers
+        const tempInput = document.createElement("input");
+        tempInput.value = url;
+        document.body.appendChild(tempInput);
+        tempInput.select();
+        document.execCommand("copy");
+        document.body.removeChild(tempInput);
+      }
+
+      showToast();
+    } catch (err) {
+      console.error("Failed to copy: ", err);
+      alert("Could not copy the link.");
+    }
+  }
+
+  shareBtn.addEventListener("click", copyCurrentUrl);
